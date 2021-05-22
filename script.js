@@ -9,6 +9,7 @@ let counter = 0
 
 let upcomingHolidays = [
     { name: "Test Day", date: new Date("May 17, 2021 00:00:00") },
+    { name: "Test Day 2", date: new Date("May 20, 2021 00:00:00") },
     { name: "Arfah Day", date: new Date("Jul 19, 2021 00:00:00") },
     { name: "Eid Al Adha", date: new Date("Jul 20, 2021 00:00:00") },
     { name: "Eid Al Adha Holiday", date: new Date("Jul 21, 2021 00:00:00") },
@@ -28,8 +29,13 @@ var currentTime = new Date().getTime();
 
 var dateDiff = countDownDate - currentTime;
 
-if (dateDiff < 0) {
+while (dateDiff < 0) {
     counter++
+
+    countDownDate = upcomingHolidays[counter]['date'].getTime()
+    countDownName = upcomingHolidays[counter]['name']
+
+    dateDiff = countDownDate - currentTime;
 }
 
 countDownDate = upcomingHolidays[counter]['date']
